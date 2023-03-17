@@ -5,9 +5,16 @@ export const FinalMultipleInputFiledComponent = () => {
     const [formErrors, setFormErrors] = useState({});
 
     function handleChange(e, index, field) {
-        const newAddresses = [...addresses];
-        newAddresses[index][field] = e.target.value;
-        setAddresses(newAddresses);
+//         const newAddresses = [...addresses];
+//         newAddresses[index][field] = e.target.value;
+//         setAddresses(newAddresses);
+         const newAddresses = [...addresses];
+  newAddresses[index] = Object.assign({}, newAddresses[index], { [field]: e.target.value });
+  setAddresses(newAddresses);
+        
+//         const newAddresses = [...addresses];
+//   newAddresses[index] = { ...newAddresses[index], [field]: e.target.value };
+//   setAddresses(newAddresses);
 
         // Remove error message when user types something in the field
         const newErrors = { ...formErrors };
